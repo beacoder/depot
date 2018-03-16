@@ -1,3 +1,6 @@
+# Force Bundle to re-install listed gems
+# bundle install --path vendor/cache
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -33,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# emacs-robe depends on pry gem
 gem 'pry', '~> 0.11.3'
 
 group :development, :test do
