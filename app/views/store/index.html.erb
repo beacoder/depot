@@ -2,14 +2,19 @@
 
 <h1>Your Pragmatic Catalog</h1>
 
-<% @products.each do |product| %>
-  <div class="entry">
-    <%= image_tag(product.image_url) %>
-    <h3><%= product.title %></h3>
-    <%= sanitize(product.description) %>
-    <div class="price_line">
-      <!-- [15] update: format the price -->
-      <span class="price"><%= number_to_currency(product.price) %></span>
-    </div>
-  </div>
+<!-- [16] update: add cachehelper to cache fragments of view -->
+<% cache @products do %>
+  <% @products.each do |product| %>
+    <% cache product do %>
+      <div class="entry">
+        <%= image_tag(product.image_url) %>
+        <h3><%= product.title %></h3>
+        <%= sanitize(product.description) %>
+        <div class="price_line">
+          <!-- [15] update: format the price -->
+          <span class="price"><%= number_to_currency(product.price) %></span>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 <% end %>
