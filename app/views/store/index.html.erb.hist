@@ -1,3 +1,5 @@
+<!-- [11] update: change view to display all products  -->
+
 <p id="notice"><%= notice %></p>
 
 <h1>Your Pragmatic Catalog</h1>
@@ -8,8 +10,7 @@
     <h3><%= product.title %></h3>
     <%= sanitize(product.description) %>
     <div class="price_line">
-      <!-- [15] update: format the price -->
-      <span class="price"><%= number_to_currency(product.price) %></span>
+      <span class="price"><%= product.price %></span>
     </div>
   </div>
 <% end %>
