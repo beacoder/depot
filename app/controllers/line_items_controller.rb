@@ -29,17 +29,17 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    # [24] update: find product with :product_id from the request
-    # add product into cart
+    # [24] update: find product with :product_id from request and add into cart
     product = Product.find(params[:product_id])
-    @line_item = @cart.line_items.build(product: product)
-    # @line_item = LineItem.new(line_item_params)
+    # @line_item = @cart.line_items.build(product: product)
+
+    # [29] update: add product to cart and update quantity
+    @line_item = @cart.add_product(product)
 
     respond_to do |format|
       if @line_item.save
         # [25] update: redirect users to the cart
         format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
-        # format.html { redirect_to @line_item, notice: 'Line item was successfully created.' }
 
         format.json { render :show, status: :created, location: @line_item }
       else
