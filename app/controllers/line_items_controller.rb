@@ -1,4 +1,5 @@
 class LineItemsController < ApplicationController
+
   # [23] update: include the CurrentCart module
   # declare set_cart() to be called before the create() action.
   include CurrentCart
