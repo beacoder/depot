@@ -19,8 +19,13 @@
 
         <!-- [47] update: render cart with partial template in sidebar -->
         <div id="cart">
-          <%= render @cart %>
+          <!-- [52] update: display cart only when it's been set -->
+          <% if @cart %>
+            <%= render @cart %>
+          <% end %>
+          <!-- [52] end: -->
         </div>
+        <!-- [47] end: -->
 
         <ul>
           <li><a href="http://www....">Home</a></li>

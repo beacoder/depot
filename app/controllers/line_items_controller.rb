@@ -43,7 +43,10 @@ class LineItemsController < ApplicationController
         # format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
 
         # [38] update: remove flash message specified by :notice
-        format.html { redirect_to @line_item.cart}
+        # format.html { redirect_to @line_item.cart}
+
+        # [51] update: redirect to the index page with cart shown in the sidebar
+        format.html { redirect_to store_index_url }
 
         format.json { render :show, status: :created, location: @line_item }
       else
