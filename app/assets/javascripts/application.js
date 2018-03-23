@@ -10,6 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// [57] update: make jQuery-UI library available to our application
+//= require jquery
+//= require jquery-ui/effect-blind
+//
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
