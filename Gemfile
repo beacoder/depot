@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # [0] update: add pry for robe
 gem 'pry', '~> 0.11.3'
 
-# [56] update: Use jquery as the JavaScript library
+# [53] update: Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 

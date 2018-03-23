@@ -48,7 +48,7 @@ class LineItemsController < ApplicationController
         # [51] update: redirect to the index page with cart shown in the sidebar
         format.html { redirect_to store_index_url }
 
-        # [54] update: respond to Ajax request with JavaScript
+        # [56] update: respond to Ajax request with JavaScript
         format.js
 
         format.json { render :show, status: :created, location: @line_item }

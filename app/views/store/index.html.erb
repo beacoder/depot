@@ -15,7 +15,7 @@
           <span class="price"><%= number_to_currency(product.price) %></span>
           <!-- [21] update: create button to add product to cart -->
           <!-- <%= button_to 'Add to Cart', line_items_path(product_id: product) %> -->
-          <!-- [53] update: send an Ajax request -->
+          <!-- [55] update: send an Ajax request -->
           <%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true %>
         </div>
       </div>
