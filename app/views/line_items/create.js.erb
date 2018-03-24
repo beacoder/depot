@@ -1,7 +1,14 @@
+// [63] update: reveal the cart in the sidebar whenever the cart contains exactly one item
+//              which means previously the cart was empty and hence hidden
+if ($('#cart tr').length == 1) { $('#cart').show('blind', 1000); }
+
 // [57] update: replace the content of the element whose id is cart with that HTML
 // (1) For simplicity and conciseness, the jQuery library is aliased to $
 // (2) $('#cart') tells jQuery to find the HTML element that has an id of cart
 // (3) The html() method is called with a first argument as the desired replacement
 // (4) helper method escape_javascript() is aliased to j(),
-// which converts Ruby string into format acceptable as input to JavaScript
+//     which converts Ruby string into format acceptable as input to JavaScript
 $('#cart').html("<%=j render(@cart) %>");
+
+// [60] update: flash the current item which is the most recent updated item
+$('#current_item').css({'background-color':'#88ff88'}).animate({'background-color':'#114411'}, 1000);

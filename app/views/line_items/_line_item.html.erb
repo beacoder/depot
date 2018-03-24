@@ -1,6 +1,14 @@
 <!-- [44] update: define the partial template for line_item,
      implicit current object is line_item which matches the template name -->
+
+<!-- [59] update: check if current item is the one that just changed.
+     If so, we tag it with an ID of current_item -->
+<% if line_item == @current_item %>
+<tr id="current_item">
+<% else %>
 <tr>
+<% end %>
+<!-- [59] end: -->
   <td><%= line_item.quantity %>&times;</td>
   <td><%= line_item.product.title %></td>
   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>

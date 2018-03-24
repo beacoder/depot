@@ -49,7 +49,10 @@ class LineItemsController < ApplicationController
         format.html { redirect_to store_index_url }
 
         # [56] update: respond to Ajax request with JavaScript
-        format.js
+        # format.js
+
+        # [58] update: keep track of most recent updated item in the cart with @current_item
+        format.js { @current_item = @line_item }
 
         format.json { render :show, status: :created, location: @line_item }
       else

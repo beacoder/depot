@@ -21,7 +21,11 @@
         <div id="cart">
           <!-- [52] update: display cart only when it's been set -->
           <% if @cart %>
-            <%= render @cart %>
+            <!-- [62] update: hide the cart if it's empty -->
+            <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+              <%= render @cart %>
+            <% end %>
+            <!-- [62] end: -->
           <% end %>
           <!-- [52] end: -->
         </div>
