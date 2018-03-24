@@ -3,11 +3,10 @@
 if ($('#cart tr').length == 1) { $('#cart').show('blind', 1000); }
 
 // [57] update: replace the content of the element whose id is cart with that HTML
-// (1) For simplicity and conciseness, the jQuery library is aliased to $
-// (2) $('#cart') tells jQuery to find the HTML element that has an id of cart
-// (3) The html() method is called with a first argument as the desired replacement
-// (4) helper method escape_javascript() is aliased to j(),
-//     which converts Ruby string into format acceptable as input to JavaScript
+// For simplicity and conciseness, the jQuery library is aliased to $
+// $('#cart') tells jQuery to find the HTML element that has an id of cart
+// The html() method is called with a first argument as the desired replacement
+// helper method escape_javascript() is aliased to j(), which converts Ruby string into format acceptable as input to JavaScript
 $('#cart').html("<%=j render(@cart) %>");
 
 // [60] update: flash the current item which is the most recent updated item
