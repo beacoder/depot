@@ -45,9 +45,9 @@ class ProductsController < ApplicationController
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
 
-        # [67] update: broadcast messages to ProductsChannel
-        # We call render_to_string() to render the view as a string, passing layout: false, because we want only this view and not the entire page
+        # [67] update: broadcast messages directly to subscriber 'products' of ProductsChannel
         # Broadcast messages typically consist of Ruby hashes, which are converted to JSON to go across the wire and end up as JavaScript objects
+        # We call render_to_string() to render the view as a string, passing layout: false, because we want only this view and not the entire page
         # Here we use html as the hash key
         @products = Product.all
         ActionCable.server.broadcast 'products',

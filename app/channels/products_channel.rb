@@ -1,6 +1,7 @@
 class ProductsChannel < ApplicationCable::Channel
   def subscribed
-    # [66] update: add subscriber "products" for Channel ProductsChannel
+    # [66] update: add subscriber "products" for ProductsChannel
+    # app/assets/javascripts/channels/products.coffee will be called when there's activity on ProductsChannel
     stream_from "products"
   end
 
