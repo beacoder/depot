@@ -11,4 +11,8 @@
   </tr>
 
 </table>
+
+<!-- [70] update: add button to create order for current cart -->
+<%= button_to "Checkout", new_order_path, method: :get %>
+
 <%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } %>

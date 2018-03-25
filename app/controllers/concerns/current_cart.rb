@@ -1,6 +1,7 @@
 # [17] update: store :cart_id in session object, create cart if not found in session
 # place module under app/controllers/concerns to share common code among controllers
-# make set_cart private to avoid being treated as controller action
+# make set_cart private to avoid being treated as controller action which
+# could be accessed directly by clients
 
 module CurrentCart
 

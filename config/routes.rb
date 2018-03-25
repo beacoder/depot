@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :orders
   resources :line_items
   resources :carts
   # [9] update: define root path, create store_index_path and store_index_url accessor methods
