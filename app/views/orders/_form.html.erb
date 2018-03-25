@@ -13,25 +13,41 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :order_name %>
+    <!-- <%= form.text_field :name, id: :order_name %> -->
+
+    <!-- [74] update: enlarge size to 40 -->
+    <%= form.text_field :name, id: :order_name, size: 40 %>
   </div>
 
   <div class="field">
     <%= form.label :address %>
-    <%= form.text_area :address, id: :order_address %>
+    <!-- <%= form.text_area :address, id: :order_address %> -->
+
+    <!-- [75] update: add more rows and cols -->
+    <%= form.text_area :address, id: :order_address, rows: 3, cols: 40 %>
   </div>
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email, id: :order_email %>
+    <!-- <%= form.text_field :email, id: :order_email %> -->
+
+    <!-- [76] update: use email_filed and enlarge size to 40 -->
+    <%= form.email_field :email, size: 40 %>
   </div>
 
   <div class="field">
     <%= form.label :pay_type %>
-    <%= form.number_field :pay_type, id: :order_pay_type %>
+    <!-- <%= form.number_field :pay_type, id: :order_pay_type %> -->
+
+    <!-- [77] update: use select and specify selectable values -->
+    <%= form.select :pay_type, Order.pay_types.keys,
+                 prompt: 'Select a payment method' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <!-- <%= form.submit %> -->
+
+    <!-- [78] update: add comments for the submit button -->
+    <%= form.submit 'Place Order' %>
   </div>
 <% end %>

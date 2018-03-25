@@ -1,3 +1,6 @@
+// [86] update: hide flash message when we add something to the cart
+$('#notice').hide();
+
 // [63] update: reveal the cart in the sidebar whenever the cart contains exactly one item
 //              which means previously the cart was empty and hence hidden
 if ($('#cart tr').length == 1) { $('#cart').show('blind', 1000); }
@@ -9,5 +12,5 @@ if ($('#cart tr').length == 1) { $('#cart').show('blind', 1000); }
 // helper method escape_javascript() is aliased to j(), which converts Ruby string into format acceptable as input to JavaScript
 $('#cart').html("<%=j render(@cart) %>");
 
-// [60] update: flash the current item which is the most recent updated item
+// [60] update: animate the current item which is the most recent updated item
 $('#current_item').css({'background-color':'#88ff88'}).animate({'background-color':'#114411'}, 1000);

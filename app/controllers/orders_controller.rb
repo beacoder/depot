@@ -34,9 +34,18 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
 
+    # [84] update: add line items to order from cart
+    @order.add_line_items_from_cart(@cart)
+
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        # format.html { redirect_to @order, notice: 'Order was successfully created.' }
+
+        # [85] update: destroy the cart after order has been generated
+        Cart.destroy(session[:cart_id])
+        session[:cart_id] = nil
+        format.html { redirect_to store_index_url, notice: 'Thank you for your order.' }
+
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }

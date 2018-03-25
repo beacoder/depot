@@ -1,11 +1,11 @@
 class Product < ApplicationRecord
 
   # [19] update: product might have many line items referencing it
-  # run check before Rails attempts to destroy product
+  # declare ensure_not_referenced_by_any_line_item() to be called before product being destroyed
   has_many :line_items
   before_destroy :ensure_not_referenced_by_any_line_item
 
-  # [7] update: add validation for model
+  # [7] update: add validation for Product
   validates :title, :description, :image_url, presence: true
   validates :price, numericality: {greater_than_or_equal_to: 0.01}
   validates :title, uniqueness: true

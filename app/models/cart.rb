@@ -1,5 +1,6 @@
 class Cart < ApplicationRecord
   # [18] update: a cart has many associated line items
+  # whenever cart is destroyed all line items belonging to it will be destroyed too
   has_many :line_items, dependent: :destroy
 
   # [28] update: add product to cart and increase the quantity
