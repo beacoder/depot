@@ -44,7 +44,13 @@ class OrdersController < ApplicationController
         # [85] update: destroy the cart after order has been generated
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
+
+        # [93] update: schedule mail to be delivered through Active Job
+        OrderMailer.received(@order).deliver_later
+        # [93] end:
+
         format.html { redirect_to store_index_url, notice: 'Thank you for your order.' }
+        # [85] end:
 
         format.json { render :show, status: :created, location: @order }
       else

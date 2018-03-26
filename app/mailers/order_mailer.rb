@@ -9,9 +9,10 @@ class OrderMailer < ApplicationMailer
   #   en.order_mailer.received.subject
   #
   def received
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+    # [91] update: send mail after order has been received
+    # save order in instance variable, specify mail's subject and send it to order's address
+    @order = order
+    mail to: order.email, subject: 'Pragmatic Store Order Confirmation'
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -20,8 +21,9 @@ class OrderMailer < ApplicationMailer
   #   en.order_mailer.shipped.subject
   #
   def shipped
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+    # [92] update: send mail after order has been shipped
+    # save order in instance variable, specify mail's subject and send it to order's address
+    @order = order
+    mail to: order.email, subject: 'Pragmatic Store Order Shipped'
   end
 end

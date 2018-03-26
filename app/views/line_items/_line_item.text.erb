@@ -1,0 +1,5 @@
+# [90] update: define the partial template for line_item used for mail
+
+<%= sprintf("%2d x %s",
+            line_item.quantity,
+            truncate(line_item.product.title, length: 50)) %>
