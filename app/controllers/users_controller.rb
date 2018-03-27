@@ -70,6 +70,11 @@ class UsersController < ApplicationController
     end
   end
 
+  # [118] update: detected last user deleted exception, show the exception message
+  rescue_from 'User::Error' do |exception|
+    redirect_to users_url, notice: exception.message
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

@@ -1,4 +1,8 @@
 class CartsController < ApplicationController
+
+  # [111] update: skip user authorization check for methods: create, update, destroy
+  skip_before_action :authorize, only: [:create, :update, :destroy]
+
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
 
   # [33] update: install error handler for exception ActiveRecord::RecordNotFound

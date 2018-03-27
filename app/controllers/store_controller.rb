@@ -1,5 +1,8 @@
 class StoreController < ApplicationController
 
+  # [109] update: skip user authorization check
+  skip_before_action :authorize
+
   # [48] update: include the CurrentCart module
   # declare set_cart() to be called before all StoreController action.
   include CurrentCart

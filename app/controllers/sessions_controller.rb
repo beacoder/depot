@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+
+  # [110] update: skip user authorization check
+  skip_before_action :authorize
+
   def new
   end
 

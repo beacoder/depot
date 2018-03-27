@@ -1,5 +1,8 @@
 class LineItemsController < ApplicationController
 
+  # [112] update: skip user authorization check only for method: create
+  skip_before_action :authorize, only: :create
+
   # [23] update: include the CurrentCart module
   # declare set_cart() to be called before the create() action.
   include CurrentCart

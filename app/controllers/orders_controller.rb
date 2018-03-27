@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
 
+  # [113] update: skip user authorization check for methods: new, create
+  skip_before_action :authorize, only: [:new, :create]
+
   # [72] update: include the CurrentCart module
   # declare set_cart() to be called before actions: new(), create()
   # declare ensure_cart_isnt_empty() to be called before action: new()
