@@ -13,12 +13,17 @@ Rails.application.routes.draw do
   # [106] end:
 
   resources :users
-  resources :orders
-  resources :line_items
-  resources :carts
 
-  # [9] update: define root path, create store_index_path and store_index_url accessor methods
-  root 'store#index', as: 'store_index'
+  # [120] update: make URL depends on locate, default to the current locale 'Englisth'
+  scope '(:locale)' do
+    resources :orders
+    resources :line_items
+    resources :carts
+
+    # [9] update: define root path, create store_index_path and store_index_url accessor methods
+    root 'store#index', as: 'store_index'
+  end
+  # [120] end:
 
   resources :products
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
