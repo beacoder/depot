@@ -162,3 +162,12 @@ body, body > p, body > ol, body > ul, body > td {margin: 8px !important}
 }
 
 // [79] end:
+
+// [132] update: add stylesheet to beautify select element for locale switch
+
+.locale {
+  float: right;
+  margin: -0.25em 0.1em;
+}
+
+// [132] end:
